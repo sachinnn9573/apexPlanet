@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEasy - Product Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><span>🛒</span> Products</h1>
+    <div class="filters">
+      <label>Category:
+        <select id="categoryFilter">
+          <option value="All">All</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </label>
+
+      <label>Sort By:
+        <select id="sortFilter">
+          <option value="price">Price</option>
+          <option value="rating">Rating</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main>
+    <div class="products">
+      <div class="product" data-category="Clothing" data-price="299" data-rating="4.2">
+        <img src="assets/t-shirt.jpg" alt="T-Shirt" />
+        <h3>T-Shirt</h3>
+        <p>Price: ₹299</p>
+        <p>Rating: 4.2 ⭐⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product" data-category="Clothing" data-price="499" data-rating="4.4">
+        <img src="assets/jeans.jpg" alt="Jeans" />
+        <h3>Jeans</h3>
+        <p>Price: ₹499</p>
+        <p>Rating: 4.4 ⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product" data-category="Electronics" data-price="1500" data-rating="4.7">
+        <img src="assets/wireless headphones.jpg" alt="Headphones" />
+        <h3>Wireless Headphones</h3>
+        <p>Price: ₹1500</p>
+        <p>Rating: 4.7 ⭐⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product" data-category="Accessories" data-price="299" data-rating="4.1">
+        <img src="assets/smartwatch.jpg" alt="Watch" />
+        <h3>Watch</h3>
+        <p>Price: ₹299</p>
+        <p>Rating: 4.1 ⭐⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product" data-category="Clothing" data-price="899"data data-rating="4.6">
+        <img src="assets/jacket.jpg" alt="jacket" />
+        <h3>winter jacket</h3>
+        <p>price: ₹899 </p>
+        <p>Rating: 4.6 ⭐⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product" data-category="Clothing" data-price="1299"data data-rating="4.6">
+        <img src="assets/shoes.jpg " alt="shoes" />
+        <h3>Running shoes</h3>
+        <p>price: ₹1299>
+        <p>Rating: 4.6 ⭐⭐⭐⭐</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body> 
