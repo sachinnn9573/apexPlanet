@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Carousel & Joke App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Responsive Carousel & Joke App</h1>
+ </header>
+
+  <section class="carousel-section">
+    <h2>Image Carousel</h2>
+    <img id="carouselImage" src="assets/image1.jpg" alt="Carousel Image" />
+    <div class="carousel-buttons">
+      <button onclick="prevImage()">Prev</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+  </section>
+
+  <section class="joke-section">
+    <h2>Random Joke</h2>
+    <p id="jokeText">Click the button to load a joke...</p>
+    <button onclick="fetchJoke()">New Joke</button>
+  </section>
+  <footer>
+<footer class="footer">
+  <p>Made with ❤️ using HTML, CSS & JavaScript</p>
+  <p>&copy; 2025 Responsive Carousel & Joke App</p>
+</footer>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
