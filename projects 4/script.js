@@ -34,6 +34,6 @@ function applyFilters() {
     return aVal - bVal;
   });
 
-  // Append sorted
+
   products.forEach(p => productContainer.appendChild(p));
 }
