@@ -1,4 +1,4 @@
-// Smooth scroll for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -20,13 +20,13 @@ function applyFilters() {
   const sortBy = sortFilter.value;
   let products = Array.from(document.querySelectorAll(".product"));
 
-  // Filter by category
+
   products.forEach(p => {
     const category = p.getAttribute("data-category");
     p.style.display = (selectedCategory === "All" || category === selectedCategory) ? "block" : "none";
   });
 
-  // Sort visible products
+
   products = products.filter(p => p.style.display !== "none");
   products.sort((a, b) => {
     const aVal = parseFloat(a.getAttribute(`data-${sortBy}`));
