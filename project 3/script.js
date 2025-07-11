@@ -26,7 +26,7 @@ function prevImage() {
 window.onload = showImage;
 
 
-// ========== Random Joke API ==========
+
 function fetchJoke() {
   fetch("https://v2.jokeapi.dev/joke/Any?type=single")
     .then(response => response.json())
