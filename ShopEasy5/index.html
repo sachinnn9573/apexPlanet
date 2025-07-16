@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEasy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+  <header class="header">
+    <h1>ShopEasy</h1>
+    <button onclick="openCart()" id="cartBtn">🛒 Cart (<span id="cart-count">0</span>)</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#ShopEasy Return">ShopEasy Return</a>
+      </ul>
+    </nav>
+    <div class="right-controls">
+      <input type="text" id="searchBar" placeholder="Search products...">
+      <button onclick="toggleTheme()" title="Toggle Theme"><i class="fa fa-adjust"></i></button>
+      <a href="auth/auth.html"><button>Login/Register</button></a>
+      <button onclick="viewCart()"><i class="fa fa-shopping-cart"></i> (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEasy Homepage</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('assets/shopping.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+      animation: slideInDown 1s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5em;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero-content .btn {
+      background: #ff6b6b;
+      color: white;
+      padding: 0.8em 1.5em;
+      border: none;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero-content .btn:hover {
+      background: #e84c4c;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to ShopEasy</h1>
+      <p>Your one-stop destination for fashion, electronics, and more</p>
+      <button class="btn">Start Shopping</button>
+    </div>
+  </section>
+</body>
+</html>
+
+
+  <section class="hero-banner" data-aos="fade-down">
+    <div class="banner-content">
+      <h2>🔥 Big Sale This Season!</h2>
+      <p>Up to 70% OFF on select items. Don't miss out!</p>
+      <a href="#offers"><button class="shop-now-btn">Shop Now</button></a>
+    </div>
+  </section>
+
+  <section id="home" class="section" data-aos="fade-up">
+    <h2>Welcome to ShopEasy</h2>
+    <p>Your favorite place for the best deals.</p>
+  </section>
+
+  <section id="categories" class="section" data-aos="fade-right">
+    <h2>Categories</h2>
+    <div class="tags">
+      <button onclick="filterProducts('Electronics')">Electronics</button>
+      <button onclick="filterProducts('Accessories')">Accessories</button>
+      <button onclick="filterProducts('Gadgets')">Gadgets</button>
+      <button onclick="filterProducts('Footwear')">Footwear</button>
+      <button onclick="filterProducts('Clothes')">Clothes</button>
+    </div>
+  </section>
+
+  <section id="offers" class="section" data-aos="zoom-in">
+    <h2>All Products</h2>
+    <div class="tags">
+      <button onclick="filterProducts('All')">All</button>
+      <button onclick="filterProducts('Electronics')">Electronics</button>
+      <button onclick="filterProducts('Accessories')">Accessories</button>
+      <button onclick="filterProducts('Gadgets')">Gadgets</button>
+      <button onclick="filterProducts('Footwear')">Footwear</button>
+      <button onclick="filterProducts('Clothes')">Clothes</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <div class="product" data-category="Electronics">
+        <img src="assets/headphone3.jpg" alt="Wireless Headphones">
+        <h3>Wireless Headphones</h3>
+        <p>₹1500</p>
+        <button onclick="addToCart('Wireless Headphones', 1500)">Add to Cart</button>
+        <button onclick="addToCart('Wireless Headphones', 1500)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (128 reviews)</p>
+      </div>
+      <div class="product" data-category="Accessories">
+        <img src="assets/watch1.jpg" alt="Watch">
+        <h3>Watch</h3>
+        <p>₹2499</p>
+        <button onclick="addToCart('Watch', 2499)">Add to Cart</button>
+        <button onclick="addToCart('Watch', 2499)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (96 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Electronics">
+        <img src="assets/lamp1.jpg" alt="USB LED Lamp">
+        <h3>USB LED Lamp</h3>
+        <p>₹299</p>
+        <button onclick="addToCart('USB LED Lamp', 299)">Add to Cart</button>
+        <button onclick="addToCart('USB LED Lamp', 299)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (130 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Gadgets">
+        <img src="assets/speaker.jpg" alt="Bluetooth Speaker">
+        <h3>Bluetooth Speaker</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Bluetooth Speaker', 999)">Add to Cart</button>
+        <button onclick="addToCart('Bluetooth Speaker', 999)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (150 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Footwear">
+        <img src="assets/shoes.jpg" alt="casual Shoes">
+        <h3>Canvas Men's Casual Snaeker</h3>
+        <p>₹1799</p>
+        <button onclick="addToCart('Canvas Snaeker', 1799)">Add to Cart</button>
+        <button onclick="addToCart('Canvas Snaeker', 1799)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (483 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Clothes">
+        <img src="assets/t-shirt1.jpg" alt="T-Shirt">
+        <h3>Graphic T-Shirt</h3>
+        <p>₹699</p>
+        <button onclick="addToCart('Graphic T-Shirt', 699)">Add to Cart</button>
+        <button onclick="addToCart('Graphic T-Shirt', 699)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (456 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Clothes">
+        <img src="assets/t-shirt2.jpg" alt="super relaxed T-Shirt">
+        <h3>Super Relaxed T-shirt</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Super Relaxed T-shirt', 499)">Add to cart</button>
+        <button onclick="addToCart('Super Relaxed T-shirt', 499)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (117 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Footwear">
+        <img src="assets/shoes2.jpg" alt="Running shoes">
+        <h3>Men's sports shoes for Running</h3>
+        <p>₹1599</p>
+        <button onclick="addToCart('Running shoes', 1599)">Add to Cart</button>
+        <button onclick="addToCart('Running shoes', 1599)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (89 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Accessories">
+        <img src="assets/watch2.jpg" alt="Watch">
+        <h3>Fossil men Leather grant analog white Dial</h3>
+        <p>₹35000</p>
+        <button onclick="addToCart('Men Fossil watch', 35000)">Add to Cart</button>
+        <button onclick="addToCart('Men Fossil watch', 35000)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (388 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Electronics">
+        <img src="assets/lamp2.jpg" alt="ceiling light">
+        <h3>Havells 15 Watt Round Ceilling Light</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('Havells ceiling light', 399)">Add to Cart</button>
+        <button onclick="addToCart('Havells ceiling light', 399)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (202 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Gadgets">
+        <img src="assets/jbl wired.jpg" alt="wired earphones">
+        <h3>JBL Primium Wired Earphones</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Wired Earphones', 499)">Add to Cart</button>
+        <button onclick="buyNow('Wired Earphones')">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (111 reviews)</p>
+      </div>
+
+      <div class="product" data-category="Gadgets">
+        <img src="assets/phone.jpg" alt="phone ">
+        <h3>Oppo F29 Pro 128 GB</h3>
+        <p>₹18999</p>
+        <button onclick="addToCart('Oppo F29 Pro', 18999)">Add to Cart</button>
+        <button onclick="addToCart('Oppo F29 Pro', 18999)">Buy Now</button>
+        <p>⭐⭐⭐⭐☆ (120 reviews)</p>
+      </div>
+    </div>
+    <section class="product-review-section">
+  <div class="review-summary">
+    <h2>Customer reviews</h2>
+    <div class="rating-box">
+      <span class="average-rating">4.6</span>
+      <span class="out-of">out of 5</span>
+      <div class="stars">
+        ★★★★☆
+      </div>
+      <p>13,750 global ratings</p>
+    </div>
+
+    <div class="rating-breakdown">
+      <div><span>5 star</span><div class="bar"><div style="width: 78%;"></div></div><span>78%</span></div>
+      <div><span>4 star</span><div class="bar"><div style="width: 14%;"></div></div><span>14%</span></div>
+      <div><span>3 star</span><div class="bar"><div style="width: 5%;"></div></div><span>5%</span></div>
+      <div><span>2 star</span><div class="bar"><div style="width: 1%;"></div></div><span>1%</span></div>
+      <div><span>1 star</span><div class="bar"><div style="width: 2%;"></div></div><span>2%</span></div>
+    </div>
+
+    <button class="write-review-btn">Write a customer review</button>
+  </div>
+
+  <div class="review-tags">
+    <h4>Customers say</h4>
+    <div class="tags">
+      <span>✔️ Quality</span>
+      <span>✔️ Sound quality</span>
+      <span>✔️ Performance</span>
+      <span>✔️ Value</span>
+      <span>✔️ Appearance</span>
+      <span>✔️ Clarity</span>
+    </div>
+  </div>
+
+  <div class="review-images">
+    <h4>Reviews with images</h4>
+    <div class="image-scroll">
+      <img src="assets/review1.png" alt="review img">
+      <img src="assets/review22.png" alt="review img">
+      <img src="assets/review3.png" alt="review img">
+      <img src="assets/review4.png" alt="review img">
+    </div>
+  </div>
+
+  <div class="top-review">
+    <h4>Top reviews from India </h4>
+    <div class="review-card">
+      <div class="review-header">
+        <span class="review-user">👤 MsDHoni</span>
+        <div class="stars">★★★★★</div>
+        <p><strong>Fabulous for YouTube Beginners</strong></p>
+        <small>Reviewed in the India on Dec 8, 2017</small>
+      </div>
+      <div class="review-body">
+        <p>I’ve had this microphone only for about 3 weeks, but so far I love it... perfect for my voice overs and even recording music... this mic is fabulous!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-question">What is ShopEasy and how does it work?</button>
+      <div class="faq-answer">ShopEasy is an online marketplace offering a wide variety of products at affordable prices, delivered to your door.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How do I track my order?</button>
+      <div class="faq-answer">Once your order is shipped, you'll receive a tracking link via email or SMS to follow its status in real-time.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What payment methods are accepted?</button>
+      <div class="faq-answer">We accept credit/debit cards, UPI, net banking, and digital wallets like Paytm, PhonePe, and Google Pay.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Can I return or exchange a product?</button>
+      <div class="faq-answer">Yes, ShopEasy offers a 7-day return/exchange policy on most products. Check product pages for specific terms.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Is my data safe on ShopEasy?</button>
+      <div class="faq-answer">Absolutely. We use secure encryption and never store sensitive information like your card CVV.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do you offer customer support?</button>
+      <div class="faq-answer">Yes, our support team is available 24/7 via chat, email, and phone.</div>
+    </div>
+  </div>
+
+  <a href="#" class="more-faqs">View More FAQs &gt;</a>
+</section>
+
+  </section>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <section class="newsletter-section" data-aos="fade-left">
+    <h3>📬 Subscribe to our Newsletter</h3>
+    <form class="newsletter">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer data-aos="fade-up">
+    <p>© 2025 ShopEasy. All rights reserved. | Sachin Chauhan</p>
+    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+      <span onclick="closeCart()" class="close-btn">×</span>
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <p><strong>Total:</strong> ₹<span id="cartTotal">0</span></p>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+
+<section class="return-policy-section">
+  <h2 class="section-title">ShopEasy Return Policy</h2>
+  <p class="section-subtitle">Worry-free shopping. Fast & free returns.</p>
+
+  <div class="policy-container">
+    <div class="policy-box animate">
+      <img src="assets/delivery box.png" alt="Box Return">
+      <h3>No-Questions-Asked Returns</h3>
+      <p>You can return any item within 7 days, no questions asked. We want you to love what you buy from ShopEasy!</p>
+    </div>
+
+    <div class="policy-box animate">
+      <img src="assets/pickup.png" alt="Free Pickup">
+      <h3>Free Pickup & Refund</h3>
+      <p>Our logistics team will pick up the product from your doorstep for free. Refunds are processed within 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <footer class="mega-footer">
+  <div class="footer-top">
+    <div class="socials">
+      <p>Follow ShopEasy</p>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Even More Plans</h4>
+      <ul>
+        <li><a href="#">International phone plans</a></li>
+        <li><a href="#">Tablet data plans</a></li>
+        <li><a href="#">Hotspot data plans</a></li>
+        <li><a href="#">Smartwatch data plans</a></li>
+      </ul>
+      <h4>Shop by Brand</h4>
+      <ul>
+        <li><a href="#">Apple iPhones</a></li>
+        <li><a href="#">Samsung Galaxy phones</a></li>
+        <li><a href="#">Google Pixel phones</a></li>
+        <li><a href="#">OnePlus phones</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>New Featured Phones</h4>
+      <ul>
+        <li><a href="#">Samsung Galaxy S24</a></li>
+        <li><a href="#">iPhone 15</a></li>
+        <li><a href="#">iPhone 15 Pro Max</a></li>
+      </ul>
+      <h4>Featured Tablets & Watches</h4>
+      <ul>
+        <li><a href="#">Apple Watch Series 9</a></li>
+        <li><a href="#">Galaxy Watch6</a></li>
+        <li><a href="#">Pixel Watch</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Helpful Guides</h4>
+      <ul>
+        <li><a href="#">Compare iPhone models</a></li>
+        <li><a href="#">Best Samsung phones</a></li>
+        <li><a href="#">Trade-in value</a></li>
+      </ul>
+      <h4>Customer Benefits</h4>
+      <ul>
+        <li><a href="#">Streaming deals</a></li>
+        <li><a href="#">Tuesdays app</a></li>
+        <li><a href="#">Device protection</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Return policy</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Billing</a></li>
+        <li><a href="#">Redeem rebate</a></li>
+      </ul>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 ShopEasy. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
